@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">VihangamYog</string>
+    <string name="registertext">Visiting for the first time.\nCreate your account here</string>
+    <string name="Email">Email ID(Optional)</string>
+    <string name="password">Password</string>
+    <string name="mobile">Mobile No.</string>
+    <string name="name">Name</string>
+    <string name="otptext">Enter the OTP</string>
+    <string name="button">GO!</string>
+    <string name="reenterpasssword">Re-enter Password</string>
+    <string name="Newuser">"         "New User? \n SIGN UP from Here</string>
+    <string name="resendcode">Re-Send Code</string>
+    <string name="reee">Haven\'t Received the Code in </string>
+    <string name="title_activity_homepagee">Homepagee</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="gyan">आज का विचार</string>
+    <string name="textin">test dummy</string>
+    <string name="ashramdetail">Vrittikut Ashram is a unique ashram of Vihangam Yoga, situated in village Pakadi of Balia
+        district in U.P, India. It is also the birth place of Sri Sadguru Sadafaldeoji Maharaj. It is full of green environment
+        surrounded with natural ponds.It is the main focal point of the Ashram, where on meditation, people can feel the
+        spiritual vibration and practical experiences within them. Here Sri Sadguru Sadafaldeoji Maharaj himself has practiced
+        meditation. It is a five floored construction, indicating the five steps of Vihangam Yoga, with a lotus structure at the
+        top.We believe that you deserve to have a hassle-free banking experience with HDFC Bank. Therefore, to ensure that you
+        are aware of your Credit Card application status, we have introduced a simple process to track the progress of your
+        application.Vrittikut Ashram is a unique ashram of Vihangam Yoga, situated in village Pakadi of Balia
+        district in U.P, India. It is also the birth place of Sri Sadguru Sadafaldeoji Maharaj. It is full of green environment
+        surrounded with natural ponds.It is the main focal point of the Ashram, where on meditation, people can feel the
+        spiritual vibration and practical experiences within them. Here Sri Sadguru Sadafaldeoji Maharaj himself has practiced
+        meditation. It is a five floored construction, indicating the five steps of Vihangam Yoga, with a lotus structure at the
+        top.We believe that you deserve to have a hassle-free banking experience with HDFC Bank. Therefore, to ensure that you
+        are aware of your Credit Card application status, we have introduced a simple process to track the progress of your
+        application.</string>
+    <string name="ashrame2detail">Vrittikut Ashram is a unique ashram of Vihangam Yoga, situated in village Pakadi of Balia
+        district in U.P, India. It is also the birth place of Sri Sadguru Sadafaldeoji Maharaj. It is full of green environment
+        surrounded with natural ponds.It is the main focal point of the Ashram, where on meditation, people can feel the
+        spiritual vibration and practical experiences within them. Here Sri Sadguru Sadafaldeoji Maharaj himself has practiced
+        meditation. It is a five floored construction, indicating the five steps of Vihangam Yoga, with a lotus structure at the
+        top.We believe that you deserve to have a hassle-free banking experience with HDFC Bank. Therefore, to ensure that you
+        are aware of your Credit Card application status, we have introduced a simple process to track the progress of your
+        application.Vrittikut Ashram is a unique ashram of Vihangam Yoga, situated in village Pakadi of Balia
+        district in U.P, India. It is also the birth place of Sri Sadguru Sadafaldeoji Maharaj. It is full of green environment
+        surrounded with natural ponds.It is the main focal point of the Ashram, where on meditation, people can feel the
+        spiritual vibration and practical experiences within them. Here Sri Sadguru Sadafaldeoji Maharaj himself has practiced
+        meditation. It is a five floored construction, indicating the five steps of Vihangam Yoga, with a lotus structure at the
+        top.We believe that you deserve to have a hassle-free banking experience with HDFC Bank. Therefore, to ensure that you
+        are aware of your Credit Card application status, we have introduced a simple process to track the progress of your
+        application.</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="default_notification_channel_name" translatable="true">News</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="msg_subscribed">Subscribed to news topic</string>
+</resources>

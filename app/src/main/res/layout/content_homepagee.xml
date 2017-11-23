@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="1dp"
+    android:layout_marginRight="1dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="yoga.android.vipin.com.vihangamyog.Initials.Homepagee"
+    tools:showIn="@layout/app_bar_homepagee">
+
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        />
+    <com.daimajia.slider.library.Indicators.PagerIndicator
+        android:id="@+id/custom_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        />
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorAccent"
+        android:layout_below="@+id/slider"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+    </com.google.android.gms.ads.AdView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@+id/adView"
+        android:layout_marginTop="5dp"
+        android:id="@+id/firstlin"
+        android:orientation="horizontal"
+        android:background="#dee9f1"
+        android:weightSum="1"
+        >
+
+
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="85dp"
+            android:orientation="vertical"
+            android:layout_weight=".25"
+            android:layout_marginLeft="4dp"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/prayy"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:text="Pray"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_marginTop="3dp"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="85dp"
+            android:orientation="vertical"
+            android:layout_weight=".25"
+            android:layout_marginLeft="4dp"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/playoutubee"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:text="Watch Videos"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_marginTop="3dp"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="85dp"
+            android:orientation="vertical"
+            android:layout_weight=".25"
+            android:layout_marginLeft="4dp"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/playm"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:text="Listen"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_marginTop="3dp"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="85dp"
+            android:orientation="vertical"
+            android:layout_weight=".25"
+            android:layout_marginLeft="4dp"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/playyou"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:text="Latest Photos"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_marginTop="3dp"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/firstlin"
+    android:background="#dee9f1"
+    android:layout_marginTop="2dp"
+    android:layout_alignParentBottom="true"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dee9f1"
+    android:layout_marginTop="2dp"
+    android:orientation="vertical"
+    android:layout_alignParentBottom="true"
+    android:layout_below="@+id/firstlin"
+    >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/vichaar"
+            android:textSize="30dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/gyan"
+            android:fontFamily="@font/insolent"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            />
+
+
+</LinearLayout>
+</ScrollView>
+
+
+
+
+</RelativeLayout>

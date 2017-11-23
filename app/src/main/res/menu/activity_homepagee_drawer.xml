@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group0"
+        >
+        <item
+            android:id="@+id/nav_centers"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Centers" />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/group1">
+        <item
+            android:id="@+id/nav_society"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Society" />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/group2"
+        >
+        <item
+            android:id="@+id/nav_History"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="History" />
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group5"
+        >
+        <item
+            android:id="@+id/nav_2"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Our Reach" />
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group6"
+        >
+        <item
+            android:id="@+id/nav_3"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Scientific Aspects" />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/group3"
+        >
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Upload phhotos of events" />
+    </group>
+
+
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Share Feedback" />
+
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Settings" />
+
+        </menu>
+    </item>
+
+</menu>

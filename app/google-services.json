@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "126769457752",
+    "firebase_url": "https://vihangam-a15c3.firebaseio.com",
+    "project_id": "vihangam-a15c3",
+    "storage_bucket": "vihangam-a15c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126769457752:android:c534c48726b1c05e",
+        "android_client_info": {
+          "package_name": "yoga.android.vipin.com.vihangamyog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "126769457752-f01l7eii7hg5nl4s3pk96cviedtd87n0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "yoga.android.vipin.com.vihangamyog",
+            "certificate_hash": "28e25c7b60fb9ad63b22a14d75e7c944a3cad66f"
+          }
+        },
+        {
+          "client_id": "126769457752-h50jglnilgs5drkill9o18ciu6kk2oak.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb5jF6wBiq-q3e2jWeaaDfW6IwQjH0u9E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "126769457752-h50jglnilgs5drkill9o18ciu6kk2oak.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
