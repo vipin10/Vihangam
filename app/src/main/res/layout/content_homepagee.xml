@@ -50,6 +50,7 @@
             android:layout_height="85dp"
             android:orientation="vertical"
             android:layout_weight=".25"
+            android:id="@+id/prayli"
             android:layout_marginLeft="4dp"
             >
             <ImageView

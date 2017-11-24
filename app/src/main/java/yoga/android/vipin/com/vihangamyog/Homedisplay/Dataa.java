@@ -1,11 +1,14 @@
 package yoga.android.vipin.com.vihangamyog.Homedisplay;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
@@ -15,30 +18,44 @@ import com.daimajia.slider.library.Tricks.ViewPagerEx;
 
 import java.util.HashMap;
 
+import yoga.android.vipin.com.vihangamyog.Pray.Praylayoutt;
 import yoga.android.vipin.com.vihangamyog.R;
 
 /**
  * Created by vipin.rai on 11/20/2017.
  */
 
-public class Dataa extends Fragment implements BaseSliderView.OnSliderClickListener,ViewPagerEx.OnPageChangeListener {
+public class Dataa extends Fragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
     private SliderLayout mDemoSlider;
+    LinearLayout prayy;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View vv=inflater.inflate(R.layout.content_homepagee,null,false);
-        mDemoSlider = (SliderLayout)vv.findViewById(R.id.slider);
+        View vv = inflater.inflate(R.layout.content_homepagee, null, false);
+        mDemoSlider = (SliderLayout) vv.findViewById(R.id.slider);
+        prayy = vv.findViewById(R.id.prayli);
+
+        //ImageView click actions
+prayy.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent ii=new Intent(getActivity(), Praylayoutt.class);
+        startActivity(ii);
+    }
+});
+
+
 
         //slidding images function in oncreate
-
-        HashMap<String,Integer> file_maps = new HashMap<String, Integer>();
-        file_maps.put("Events",R.drawable.saddg);
-        file_maps.put("Events r displayed here",R.drawable.mandir);
-        file_maps.put("Path to enlightenment",R.drawable.gurujii);
+        HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
+        file_maps.put("Events", R.drawable.saddg);
+        file_maps.put("Events r displayed here", R.drawable.mandir);
+        file_maps.put("Path to enlightenment", R.drawable.gurujii);
         file_maps.put("Sadguruji", R.drawable.gurur);
 
-        for(String name : file_maps.keySet()){
+        for (String name : file_maps.keySet()) {
             TextSliderView textSliderView = new TextSliderView(getActivity());
             // initialize a SliderLayout
             textSliderView
@@ -50,7 +67,7 @@ public class Dataa extends Fragment implements BaseSliderView.OnSliderClickListe
             //add your extra information
             textSliderView.bundle(new Bundle());
             textSliderView.getBundle()
-                    .putString("extra",name);
+                    .putString("extra", name);
 
             mDemoSlider.addSlider(textSliderView);
         }

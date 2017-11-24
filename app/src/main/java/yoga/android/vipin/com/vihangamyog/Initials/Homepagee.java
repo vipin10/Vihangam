@@ -1,6 +1,7 @@
 package yoga.android.vipin.com.vihangamyog.Initials;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -17,8 +18,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
+
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
@@ -27,26 +32,28 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import yoga.android.vipin.com.vihangamyog.Centers.centerslist;
+import yoga.android.vipin.com.vihangamyog.Firebasenotify.fcmnotifi;
 import yoga.android.vipin.com.vihangamyog.Homedisplay.Dataa;
 import yoga.android.vipin.com.vihangamyog.R;
 
 public class Homepagee extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-        BaseSliderView.OnSliderClickListener,ViewPagerEx.OnPageChangeListener {
+        BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
     private SliderLayout mDemoSlider;
     Toolbar toolbar;
     FirebaseAuth mauth;
 
-    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepagee);
-         toolbar= (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setBackgroundColor(R.color.colorAccent);
-         mauth=FirebaseAuth.getInstance();
+        mauth = FirebaseAuth.getInstance();
         toolbar.setTitle("Home");
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         FragmentTransaction tx = getFragmentManager().beginTransaction();
@@ -57,15 +64,13 @@ public class Homepagee extends AppCompatActivity implements NavigationView.OnNav
         adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
 
 
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawer.addDrawerListener(toggle);
+            toggle.syncState();
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        navigationView.setNavigationItemSelectedListener(this);
-
+            navigationView.setNavigationItemSelectedListener(this);
 
 
 
@@ -82,27 +87,26 @@ public class Homepagee extends AppCompatActivity implements NavigationView.OnNav
     }
 
 
-
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        Fragment fm=new Fragment();
-       FragmentManager fragmentManager=getFragmentManager();
+        Fragment fm = new Fragment();
+        FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_centers) {
             toolbar.setTitle("Ashrams");
-            ft.replace(R.id.framee,new centerslist()).commit();
+            ft.replace(R.id.framee, new centerslist()).commit();
 
             // Handle the camera action
         } else if (id == R.id.nav_society) {
-            Toast.makeText(getBaseContext(),"second option clicked",Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "second option clicked", Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_History) {
-            Toast.makeText(getBaseContext(),"Third option clicked",Toast.LENGTH_LONG).show();
-        }else if (id == R.id.nav_settings){
+            Toast.makeText(getBaseContext(), "Third option clicked", Toast.LENGTH_LONG).show();
+        } else if (id == R.id.nav_settings) {
             mauth.signOut();
             FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
                 @Override
