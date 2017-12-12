@@ -52,6 +52,7 @@
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="default_notification_channel_name" translatable="true">News</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="prayy">Vandana</string>
     <string name="msg_subscribed">Subscribed to news topic</string>
     <string name="prayermonring">Schedule \nMorning Prayers</string>
     <string name="prayerevng">Schedule \nEvening Prayers</string>

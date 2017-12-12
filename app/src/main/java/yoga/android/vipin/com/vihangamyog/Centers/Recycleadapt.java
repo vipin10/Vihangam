@@ -22,6 +22,7 @@ public class Recycleadapt extends RecyclerView.Adapter<Recycleadapt.ViewHolder> 
 Context con;
     TextView ttv;
     ImageView ivvv;
+    String firstas;
     public  Recycleadapt(Context con){
         this.con=con;
     }
@@ -29,7 +30,6 @@ Context con;
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View vv= LayoutInflater.from(con).inflate(R.layout.recycleadapt,null,false);
-
         return new ViewHolder(vv);
     }
 
@@ -54,7 +54,7 @@ Context con;
 
     @Override
     public int getItemCount() {
-        return 5;
+        return 6;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -67,13 +67,45 @@ Context con;
                 @Override
                 public void onClick(View v) {
                     if(getLayoutPosition()==0){
-                      String firstas=((TextView)v.findViewById(R.id.textView6)).getText().toString();
+                        firstas=((TextView)v.findViewById(R.id.textView6)).getText().toString();
                       Intent a=new Intent(con,CentersDetail.class);
                         Toast.makeText(con,"0 option"+getLayoutPosition(),Toast.LENGTH_LONG).show();
                         a.putExtra("itemname",firstas);
                       con.startActivity(a);
-                    }else{
-                        Toast.makeText(con,"wrong option",Toast.LENGTH_LONG).show();
+                    }else if(getLayoutPosition()==1){
+                        firstas=((TextView)v.findViewById(R.id.textView6)).getText().toString();
+                        Intent a=new Intent(con,CentersDetail.class);
+                        Toast.makeText(con,"1 option"+getLayoutPosition(),Toast.LENGTH_LONG).show();
+                        a.putExtra("itemname",firstas);
+                        con.startActivity(a);
+                    }
+                    else if(getLayoutPosition()==2){
+                        firstas=((TextView)v.findViewById(R.id.textView6)).getText().toString();
+                        Intent a=new Intent(con,CentersDetail.class);
+                        Toast.makeText(con,"2 option"+getLayoutPosition(),Toast.LENGTH_LONG).show();
+                        a.putExtra("itemname",firstas);
+                        con.startActivity(a);
+                    }
+                    else if(getLayoutPosition()==3){
+                        firstas=((TextView)v.findViewById(R.id.textView6)).getText().toString();
+                        Intent a=new Intent(con,CentersDetail.class);
+                        Toast.makeText(con,"3 option"+getLayoutPosition(),Toast.LENGTH_LONG).show();
+                        a.putExtra("itemname",firstas);
+                        con.startActivity(a);
+                    }
+                    else if(getLayoutPosition()==4){
+                        firstas=((TextView)v.findViewById(R.id.textView6)).getText().toString();
+                        Intent a=new Intent(con,CentersDetail.class);
+                        Toast.makeText(con,"4 option"+getLayoutPosition(),Toast.LENGTH_LONG).show();
+                        a.putExtra("itemname",firstas);
+                        con.startActivity(a);
+                    }
+                    else if(getLayoutPosition()==5){
+                        firstas=((TextView)v.findViewById(R.id.textView6)).getText().toString();
+                        Intent a=new Intent(con,CentersDetail.class);
+                        Toast.makeText(con,"5 option"+getLayoutPosition(),Toast.LENGTH_LONG).show();
+                        a.putExtra("itemname",firstas);
+                        con.startActivity(a);
                     }
                 }
             });

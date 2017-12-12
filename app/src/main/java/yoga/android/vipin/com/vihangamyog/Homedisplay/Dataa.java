@@ -16,10 +16,15 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 
+import java.io.File;
 import java.util.HashMap;
 
+import yoga.android.vipin.com.vihangamyog.AudioPlay.Audiomp;
+import yoga.android.vipin.com.vihangamyog.Database.WriteFile;
 import yoga.android.vipin.com.vihangamyog.Pray.Praylayoutt;
 import yoga.android.vipin.com.vihangamyog.R;
+import yoga.android.vipin.com.vihangamyog.Uploadpics.ViewAddPhotos;
+import yoga.android.vipin.com.vihangamyog.Videosguruji.videosplay;
 
 /**
  * Created by vipin.rai on 11/20/2017.
@@ -29,14 +34,23 @@ public class Dataa extends Fragment implements BaseSliderView.OnSliderClickListe
 
     private SliderLayout mDemoSlider;
     LinearLayout prayy;
-
+     LinearLayout videoss;
+     LinearLayout audiosss,uploadpics;
+     String filename="myfile";
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View vv = inflater.inflate(R.layout.content_homepagee, null, false);
         mDemoSlider = (SliderLayout) vv.findViewById(R.id.slider);
         prayy = vv.findViewById(R.id.prayli);
+        videoss=vv.findViewById(R.id.watchvid);
+        audiosss=vv.findViewById(R.id.audiosss);
+        uploadpics=vv.findViewById(R.id.uploadpiccc);
 
+        WriteFile wr=new WriteFile();
+        wr.wrii();
+        wr.isExternalStorageWritable();
+        wr.isExternalStorageReadable();
         //ImageView click actions
 prayy.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -45,8 +59,27 @@ prayy.setOnClickListener(new View.OnClickListener() {
         startActivity(ii);
     }
 });
-
-
+videoss.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent iii=new Intent(getActivity(),videosplay.class);
+         startActivity(iii);
+    }
+});
+audiosss.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent iiii=new Intent(getActivity(), Audiomp.class);
+        startActivity(iiii);
+    }
+});
+uploadpics.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent ii=new Intent(getActivity(), ViewAddPhotos.class);
+        startActivity(ii);
+    }
+});
 
         //slidding images function in oncreate
         HashMap<String, Integer> file_maps = new HashMap<String, Integer>();

@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -20,7 +21,8 @@
             android:resource="@color/colorAccent" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
-            android:value="@string/default_notification_channel_id"/>
+            android:value="@string/default_notification_channel_id" />
+
         <activity android:name=".Initials.FirstActivity" />
         <activity
             android:name=".Initials.MainActivity"
@@ -49,25 +51,43 @@
         <activity
             android:name=".Centers.CentersDetail"
             android:theme="@style/AppTheme.noactionbar" />
-        <activity android:name=".Firebasenotify.fcmnotifi"></activity>
-        <service
-            android:name=".Firebasenotify.MyFirebaseMessagingService">
+        <activity android:name=".Firebasenotify.fcmnotifi" />
+
+        <service android:name=".Firebasenotify.MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Firebasenotify.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
         <service
-            android:name=".Firebasenotify.MyFirebaseInstanceIDService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-            </intent-filter>
-        </service>
-        <service android:name=".Firebasenotify.MyJobService"
+            android:name=".Firebasenotify.MyJobService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
             </intent-filter>
         </service>
+
+        <activity
+            android:name=".Pray.Praylayoutt"
+            android:label="@string/prayy"
+            android:theme="@style/AppTheme.noactionbar" />
+
+        <activity android:name=".Videosguruji.videosplay"
+            android:theme="@style/AppTheme.noactionbar"
+            />
+
+        <activity android:name=".AudioPlay.Audiomp"
+            android:theme="@style/AppTheme.noactionbar"
+            />
+
+
+        <activity android:name=".Uploadpics.ViewAddPhotos"
+            android:theme="@style/AppTheme.noactionbar"
+            ></activity>
     </application>
 
 </manifest>

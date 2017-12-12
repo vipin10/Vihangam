@@ -41,6 +41,18 @@ public class CentersDetail extends AppCompatActivity {
        }else if(asd.equals("Maharshi Sadafaldeo Ashram, Jhunsi, Allahabad")){
            iv1.setBackground(getDrawable(R.drawable.mandir1));
            descr.setText(R.string.ashrame2detail);
+       }else if(asd.equals("Shoonya Shikhar Ashram,garhwal")){
+           iv1.setBackground(getDrawable(R.drawable.mandir2));
+           descr.setText(R.string.ashramdetail);
+        }else if (asd.equals("Madhumati Ashram,Gaya")){
+           iv1.setBackground(getDrawable(R.drawable.mandir2));
+           descr.setText(R.string.ashramdetail);
+       }else if (asd.equals("Dandakvan Ashram,Gujrat")){
+           iv1.setBackground(getDrawable(R.drawable.mandir2));
+           descr.setText(R.string.ashramdetail);
+       }else if (asd.equals("Swarveda Mahamandir,Varanasi")){
+           iv1.setBackground(getDrawable(R.drawable.mandir2));
+           descr.setText(R.string.ashramdetail);
        }
        else{
            Toast.makeText(this,"not working right now",Toast.LENGTH_LONG).show();

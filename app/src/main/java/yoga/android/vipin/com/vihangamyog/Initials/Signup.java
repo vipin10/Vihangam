@@ -42,11 +42,11 @@ public class Signup extends AppCompatActivity {
         pass3 = (EditText) findViewById(R.id.editText4);
         repasse4 = (EditText) findViewById(R.id.editText5);
         sign1 = (Button) findViewById(R.id.button2);
-sp=PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        sp=PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         sign1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                aaa();
+                signin();
 
             }
         });
@@ -54,13 +54,13 @@ sp=PreferenceManager.getDefaultSharedPreferences(getBaseContext());
     }
 
 
-    public void aaa() {
+    public void signin() {
 
         num = name1.getText().toString();
         email = email1.getText().toString();
         namee = pass3.getText().toString();
         passs = repasse4.getText().toString();
-        sp.edit().putString("password",passs).apply();
+        sp.edit().putString("Number",namee).apply();
         if (email.matches("")) {
 
             Toast.makeText(this, "You did not enter a username", Toast.LENGTH_SHORT).show();

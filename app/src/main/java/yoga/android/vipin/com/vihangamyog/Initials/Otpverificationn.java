@@ -2,6 +2,7 @@ package yoga.android.vipin.com.vihangamyog.Initials;
 
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -33,7 +35,7 @@ import yoga.android.vipin.com.vihangamyog.R;
 public class Otpverificationn extends AppCompatActivity {
     String verificationId;
     String code;
-    private FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
     String TAG="tag";
     Button bb,resendbb;
     EditText ee;
@@ -43,6 +45,8 @@ public class Otpverificationn extends AppCompatActivity {
     String phonee;
     String phoneNumber;
     PhoneAuthProvider.ForceResendingToken fff;
+    ProgressDialog pd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +58,8 @@ public class Otpverificationn extends AppCompatActivity {
         ee=(EditText)findViewById(R.id.editText7);
         ttv=(TextView)findViewById(R.id.textView3);
        sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        phoneNumber=sp.getString("phone",null);
+        phoneNumber=sp.getString("Number",null);
+        Toast.makeText(this,"No. is"+phoneNumber,Toast.LENGTH_LONG).show();
         //Declare the timer
         Timer t = new Timer();
         //Set the schedule function and rate
@@ -79,7 +84,7 @@ public class Otpverificationn extends AppCompatActivity {
                             resendbb.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    resendVerificationCode(phonee,fff);
+                                    resendVerificationCode(phoneNumber,fff);
                                 }
                             });
                         }
@@ -123,6 +128,7 @@ public class Otpverificationn extends AppCompatActivity {
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 // The verification code entered was invalid
+                                Toast.makeText(getApplicationContext(),"The Code entered is Invalid.Please Try again",Toast.LENGTH_LONG).show();
                             }
                         }
                     }
@@ -131,28 +137,9 @@ public class Otpverificationn extends AppCompatActivity {
 
     }
     private void resendVerificationCode(String phoneeee, PhoneAuthProvider.ForceResendingToken token) {
-        phoneeee=phoneNumber;
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
 
-                phoneeee,        // Phone number to verify
-                60,                 // Timeout duration
-                TimeUnit.SECONDS,   // Unit of timeout
-                this,               // Activity (for callback binding)
-                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                    @Override
-                    public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-                        Log.d(TAG, "onVerificationCompleted:" + phoneAuthCredential);
-
-                    }
-
-                    @Override
-                    public void onVerificationFailed(FirebaseException e) {
-                        Log.w(TAG, "onVerificationFailed", e);
-
-                    }
-                },         // OnVerificationStateChangedCallbacks
-                token);             // ForceResendingToken from callbacks
     }
+
     public void veriff(View view){
         verificationId=sp.getString("verifi",null);
         code=ee.getText().toString();

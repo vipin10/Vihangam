@@ -48,7 +48,6 @@ Boolean token1=false;
         FirebaseMessaging.getInstance().subscribeToTopic("news");
         String msg = getString(R.string.msg_subscribed);
         Log.d(TAG, msg);
-        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
 
 
 
@@ -67,7 +66,6 @@ Boolean token1=false;
         // Log and toast
         String mag = getString(R.string.msg_token_fmt, token);
         Log.d(TAG, mag);
-        Toast.makeText(MainActivity.this, mag, Toast.LENGTH_SHORT).show();
 
 
         if (token1=false){

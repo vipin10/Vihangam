@@ -32,11 +32,9 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.messaging.FirebaseMessaging;
 
 import yoga.android.vipin.com.vihangamyog.Centers.centerslist;
-import yoga.android.vipin.com.vihangamyog.Firebasenotify.fcmnotifi;
+import yoga.android.vipin.com.vihangamyog.History.Babaji;
 import yoga.android.vipin.com.vihangamyog.Homedisplay.Dataa;
 import yoga.android.vipin.com.vihangamyog.R;
 
@@ -52,7 +50,7 @@ public class Homepagee extends AppCompatActivity implements NavigationView.OnNav
         setContentView(R.layout.activity_homepagee);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setBackgroundColor(R.color.colorAccent);
+        //toolbar.setBackgroundColor(R.color.colorAccent);
         mauth = FirebaseAuth.getInstance();
         toolbar.setTitle("Home");
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -103,8 +101,10 @@ public class Homepagee extends AppCompatActivity implements NavigationView.OnNav
 
             // Handle the camera action
         } else if (id == R.id.nav_society) {
-            Toast.makeText(getBaseContext(), "second option clicked", Toast.LENGTH_LONG).show();
+
         } else if (id == R.id.nav_History) {
+            toolbar.setTitle("History");
+            ft.replace(R.id.framee,new Babaji()).commit();
             Toast.makeText(getBaseContext(), "Third option clicked", Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_settings) {
             mauth.signOut();
@@ -120,9 +120,9 @@ public class Homepagee extends AppCompatActivity implements NavigationView.OnNav
                     }
                 }
             };
-            //FirebaseAuth.getInstance().signOut();
+        }else if (id==R.id.nav_share){
+            Toast.makeText(this,"shared",Toast.LENGTH_LONG).show();
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

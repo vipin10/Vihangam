@@ -78,6 +78,7 @@
             android:layout_height="85dp"
             android:orientation="vertical"
             android:layout_weight=".25"
+            android:id="@+id/watchvid"
             android:layout_marginLeft="4dp"
             >
             <ImageView
@@ -105,6 +106,7 @@
             android:layout_height="85dp"
             android:orientation="vertical"
             android:layout_weight=".25"
+            android:id="@+id/audiosss"
             android:layout_marginLeft="4dp"
             >
             <ImageView
@@ -132,6 +134,7 @@
             android:layout_height="85dp"
             android:orientation="vertical"
             android:layout_weight=".25"
+            android:id="@+id/uploadpiccc"
             android:layout_marginLeft="4dp"
             >
             <ImageView
