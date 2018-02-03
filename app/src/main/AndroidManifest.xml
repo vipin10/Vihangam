@@ -4,9 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".YoutubeAPI.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -23,7 +24,7 @@
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
 
-        <activity android:name=".Initials.FirstActivity" />
+
         <activity
             android:name=".Initials.MainActivity"
             android:theme="@style/AppTheme.noactionbar">
@@ -35,7 +36,6 @@
         </activity>
         <activity
             android:name=".Initials.loginpage"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.noactionbar" />
         <activity
             android:name=".Initials.Signup"
@@ -75,19 +75,25 @@
             android:name=".Pray.Praylayoutt"
             android:label="@string/prayy"
             android:theme="@style/AppTheme.noactionbar" />
-
-        <activity android:name=".Videosguruji.videosplay"
+        <activity
+            android:name=".Videosguruji.videosplay"
+            android:theme="@style/AppTheme.noactionbar" />
+        <activity
+            android:name=".AudioPlay.Audiomp"
+            android:theme="@style/AppTheme.noactionbar" />
+        <activity
+            android:name=".YoutubeAPI.ChannelActivity"
+            android:label="@string/prayy"
             android:theme="@style/AppTheme.noactionbar"
+            android:screenOrientation="portrait"
             />
+        <activity android:name=".YoutubeAPI.VideoActivity" />
+        <activity android:name=".YoutubeAPI.MainActivity1" />
+        <activity
+            android:name=".Uploadpics.ViewAddPhotos"
+            android:theme="@style/AppTheme.noactionbar" />
+        <activity android:name=".History.Babajidetail"></activity>
 
-        <activity android:name=".AudioPlay.Audiomp"
-            android:theme="@style/AppTheme.noactionbar"
-            />
-
-
-        <activity android:name=".Uploadpics.ViewAddPhotos"
-            android:theme="@style/AppTheme.noactionbar"
-            ></activity>
     </application>
 
 </manifest>

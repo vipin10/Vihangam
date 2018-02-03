@@ -13,13 +13,13 @@
         app:elevation="6dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.design.widget.CollapsingToolbarLayout
+        <!--<android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             CollapsingToolbarLayout_title="Ashrams"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">-->
 
 
 
@@ -30,16 +30,16 @@
                 android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
-                app:layout_collapseMode="parallax"/>
+                app:layout_scrollFlags="scroll|enterAlways" />
+    </android.support.design.widget.AppBarLayout>
+        <!--</android.support.design.widget.CollapsingToolbarLayout>-->
 
-        </android.support.design.widget.CollapsingToolbarLayout>
-
-        <FrameLayout
+      <!--  <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipChildren="false"
             android:background="#938e9a"
-            android:clipToPadding="false">
+            android:clipToPadding="false">-->
 
 
 
@@ -48,16 +48,40 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
                 android:paddingBottom="8dp"
-                android:orientation="horizontal">
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawablePadding="15dp"
+                    android:paddingStart="5dp"
+                    android:drawableStart="?attr/actionModeCloseDrawable"
                     android:text="Vrittikut Ashram"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginLeft="40dp"
-                    android:textColor="#FFF"
+                    android:textColor="#000"
                     android:textSize="30sp" />
+
+                <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+                        android:id="@+id/descrip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:textSize="18dp"
+                        android:padding="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_gravity="start"
+                        android:textAlignment="textStart"
+                        />
+
+
+                </android.support.v4.widget.NestedScrollView>
 
                 <!--<TextView
                     android:layout_width="match_parent"
@@ -69,39 +93,20 @@
 
             </LinearLayout>
 
-            <ImageView
+           <!-- <ImageView
                 android:id="@+id/imageView6"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="8dp"
-                app:srcCompat="@drawable/backarrow" />
+                app:srcCompat="@drawable/backarrow" />-->
 
 
-        </FrameLayout>
+        <!--</FrameLayout>-->
 
-    </android.support.design.widget.AppBarLayout>
+
 
     <!--<include layout="@layout/content_scrolling" />-->
 
-    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:id="@+id/descrip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="6dp"
-            android:textSize="18dp"
-            android:padding="5dp"
-            android:paddingBottom="5dp"
-            android:layout_gravity="start"
-            android:textAlignment="textStart"
-            />
-
-    </android.support.v4.widget.NestedScrollView>
 
 </android.support.design.widget.CoordinatorLayout>

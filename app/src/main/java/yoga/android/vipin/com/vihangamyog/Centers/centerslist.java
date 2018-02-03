@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -28,6 +29,7 @@ import org.w3c.dom.Text;
 import java.util.HashMap;
 
 import yoga.android.vipin.com.vihangamyog.Homedisplay.Dataa;
+import yoga.android.vipin.com.vihangamyog.Initials.Homepagee;
 import yoga.android.vipin.com.vihangamyog.R;
 
 /**
@@ -125,6 +127,13 @@ public class centerslist extends Fragment implements BaseSliderView.OnSliderClic
 
     @Override
     public void onPageScrollStateChanged(int state) {
+
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent myIntent = new Intent(getActivity(), Homepagee.class);
+        startActivityForResult(myIntent, 0);
+        return super.onOptionsItemSelected(item);
 
     }
 }

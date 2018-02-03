@@ -1,7 +1,6 @@
 package yoga.android.vipin.com.vihangamyog.Centers;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
+
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -22,8 +21,10 @@ public class Recycleadapt extends RecyclerView.Adapter<Recycleadapt.ViewHolder> 
 Context con;
     TextView ttv;
     ImageView ivvv;
-    String firstas;
-    public  Recycleadapt(Context con){
+    String dd;
+
+    public  Recycleadapt(Context con)
+    {
         this.con=con;
     }
 
@@ -67,44 +68,44 @@ Context con;
                 @Override
                 public void onClick(View v) {
                     if(getLayoutPosition()==0){
-                        firstas=((TextView)v.findViewById(R.id.textView6)).getText().toString();
+                        dd=((TextView)v.findViewById(R.id.textView6)).getText().toString();
                       Intent a=new Intent(con,CentersDetail.class);
                         Toast.makeText(con,"0 option"+getLayoutPosition(),Toast.LENGTH_LONG).show();
-                        a.putExtra("itemname",firstas);
+                        a.putExtra("itemname",dd);
                       con.startActivity(a);
                     }else if(getLayoutPosition()==1){
-                        firstas=((TextView)v.findViewById(R.id.textView6)).getText().toString();
+                        dd=((TextView)v.findViewById(R.id.textView6)).getText().toString();
                         Intent a=new Intent(con,CentersDetail.class);
                         Toast.makeText(con,"1 option"+getLayoutPosition(),Toast.LENGTH_LONG).show();
-                        a.putExtra("itemname",firstas);
+                        a.putExtra("itemname",dd);
                         con.startActivity(a);
                     }
                     else if(getLayoutPosition()==2){
-                        firstas=((TextView)v.findViewById(R.id.textView6)).getText().toString();
+                        dd=((TextView)v.findViewById(R.id.textView6)).getText().toString();
                         Intent a=new Intent(con,CentersDetail.class);
                         Toast.makeText(con,"2 option"+getLayoutPosition(),Toast.LENGTH_LONG).show();
-                        a.putExtra("itemname",firstas);
+                        a.putExtra("itemname",dd);
                         con.startActivity(a);
                     }
                     else if(getLayoutPosition()==3){
-                        firstas=((TextView)v.findViewById(R.id.textView6)).getText().toString();
+                        dd=((TextView)v.findViewById(R.id.textView6)).getText().toString();
                         Intent a=new Intent(con,CentersDetail.class);
                         Toast.makeText(con,"3 option"+getLayoutPosition(),Toast.LENGTH_LONG).show();
-                        a.putExtra("itemname",firstas);
+                        a.putExtra("itemname",dd);
                         con.startActivity(a);
                     }
                     else if(getLayoutPosition()==4){
-                        firstas=((TextView)v.findViewById(R.id.textView6)).getText().toString();
+                        dd=((TextView)v.findViewById(R.id.textView6)).getText().toString();
                         Intent a=new Intent(con,CentersDetail.class);
                         Toast.makeText(con,"4 option"+getLayoutPosition(),Toast.LENGTH_LONG).show();
-                        a.putExtra("itemname",firstas);
+                        a.putExtra("itemname",dd);
                         con.startActivity(a);
                     }
                     else if(getLayoutPosition()==5){
-                        firstas=((TextView)v.findViewById(R.id.textView6)).getText().toString();
+                        dd=((TextView)v.findViewById(R.id.textView6)).getText().toString();
                         Intent a=new Intent(con,CentersDetail.class);
                         Toast.makeText(con,"5 option"+getLayoutPosition(),Toast.LENGTH_LONG).show();
-                        a.putExtra("itemname",firstas);
+                        a.putExtra("itemname",dd);
                         con.startActivity(a);
                     }
                 }

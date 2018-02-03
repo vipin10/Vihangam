@@ -1,24 +1,20 @@
 package yoga.android.vipin.com.vihangamyog.Uploadpics;
 
-import android.app.Activity;
-import android.graphics.Point;
+
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
+import android.view.MenuItem;
 
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
+import yoga.android.vipin.com.vihangamyog.Initials.Homepagee;
 import yoga.android.vipin.com.vihangamyog.R;
 
 public class ViewAddPhotos extends AppCompatActivity {
@@ -46,7 +42,7 @@ ActionBar actionbaradddp;
         setSupportActionBar(toolbaraddp);
         actionbaradddp=getSupportActionBar();
         actionbaradddp.setDisplayHomeAsUpEnabled(true);
-       // toolbaraddp.setBackgroundColor(R.color.colorAccent);
+        toolbaraddp.setBackgroundColor(R.color.colorAccent);
         toolbaraddp.setTitle("Pray");
         toolbaraddp.setTitleTextColor(getResources().getColor(R.color.colorwhiteee));
         vp.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tl));
@@ -66,6 +62,13 @@ ActionBar actionbaradddp;
 
             }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent myIntent = new Intent(getApplicationContext(), Homepagee.class);
+        startActivityForResult(myIntent, 0);
+        return super.onOptionsItemSelected(item);
+
     }
 
 }

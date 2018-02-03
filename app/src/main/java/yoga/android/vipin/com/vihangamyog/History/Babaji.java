@@ -1,6 +1,7 @@
 package yoga.android.vipin.com.vihangamyog.History;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -19,6 +21,7 @@ import com.daimajia.slider.library.Tricks.ViewPagerEx;
 
 import java.util.HashMap;
 
+import yoga.android.vipin.com.vihangamyog.Initials.Homepagee;
 import yoga.android.vipin.com.vihangamyog.R;
 
 /**
@@ -42,10 +45,10 @@ RecyclerView rvv;
         //slidding images function in oncreate
 
         HashMap<String,Integer> file_maps = new HashMap<String, Integer>();
-        file_maps.put("Ashram 2",R.drawable.mandir);
-        file_maps.put("Ashram 1",R.drawable.mandir1);
-        file_maps.put("Ashram 3",R.drawable.mandir4);
-        file_maps.put("Ashram 4", R.drawable.mandir5);
+        file_maps.put("Sadafaldevji maharaj",R.drawable.guruu);
+        file_maps.put("Dharamchandradeo Ji Maharaj",R.drawable.guruu3);
+        file_maps.put("Swatantradeo Maharaj",R.drawable.guruu2);
+        file_maps.put("Vigyandeo Maharaj", R.drawable.guruu4);
 
 
         for(String name : file_maps.keySet()){
@@ -89,6 +92,12 @@ RecyclerView rvv;
 
     @Override
     public void onPageScrollStateChanged(int state) {
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent myIntent = new Intent(getActivity(), Homepagee.class);
+        startActivityForResult(myIntent, 0);
+        return super.onOptionsItemSelected(item);
 
     }
 }

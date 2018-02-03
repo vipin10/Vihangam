@@ -1,12 +1,14 @@
 package yoga.android.vipin.com.vihangamyog.History;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import yoga.android.vipin.com.vihangamyog.R;
 
@@ -18,6 +20,7 @@ public class RecycleAdaptt extends RecyclerView.Adapter<RecycleAdaptt.ViewHolder
 Context contextt;
 ImageView babaa;
 TextView tavava;
+String firstas;
     public RecycleAdaptt(Context contextt){
         this.contextt=contextt;
     }
@@ -31,25 +34,25 @@ TextView tavava;
     @Override
     public void onBindViewHolder(RecycleAdaptt.ViewHolder holder, int position) {
         if (position==0){
-            tavava.setText("Vrittikut Ashram,Ballia");
+            tavava.setText("Sadguru Sadafal Deo Ji Maharaj");
         }else if (position==1){
-            tavava.setText("Maharshi Sadafaldeo Ashram, Jhunsi, Allahabad");
+            tavava.setText("Sadguru Dharamchandradeo Ji Maharaj");
         }else if(position==2){
-            tavava.setText("Shoonya Shikhar Ashram,garhwal");
+            tavava.setText("Sadguru Swatantradeo Maharaj");
         }else if (position==3){
-            tavava.setText("Madhumati Ashram,Gaya");
-        }else if(position==4){
-            tavava.setText("Dandakvan Ashram,Gujrat");
+            tavava.setText("Sadguru Pravar Vigyandeo Maharaj");
+        }/*else if(position==4){
+            tavava.setText("Sadguru Sadafal Deo Ji Maharaj");
         }else if(position==5){
-            tavava.setText("Swarveda Mahamandir,Varanasi");
-        }
+            tavava.setText("Sadguru Sadafal Deo Ji Maharaj");
+        }*/
 
 
     }
 
     @Override
     public int getItemCount() {
-        return 6;
+        return 4;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -57,6 +60,41 @@ TextView tavava;
             super(itemView);
             tavava=itemView.findViewById(R.id.babaname);
             babaa=itemView.findViewById(R.id.imagii);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(getLayoutPosition()==0){
+                        firstas=((TextView)v.findViewById(R.id.babaname)).getText().toString();
+                        Intent a=new Intent(contextt,Babajidetail.class);
+                        Toast.makeText(contextt,"0 option"+getLayoutPosition(), Toast.LENGTH_LONG).show();
+                        a.putExtra("itemname",firstas);
+                        contextt.startActivity(a);
+                    }else if(getLayoutPosition()==1){
+                        firstas=((TextView)v.findViewById(R.id.babaname)).getText().toString();
+                        Intent a=new Intent(contextt,Babajidetail.class);
+                        Toast.makeText(contextt,"1 option"+getLayoutPosition(),Toast.LENGTH_LONG).show();
+                        a.putExtra("itemname",firstas);
+                        contextt.startActivity(a);
+                    }
+                    else if(getLayoutPosition()==2){
+                        firstas=((TextView)v.findViewById(R.id.babaname)).getText().toString();
+                        Intent a=new Intent(contextt,Babajidetail.class);
+                        Toast.makeText(contextt,"2 option"+getLayoutPosition(),Toast.LENGTH_LONG).show();
+                        a.putExtra("itemname",firstas);
+                        contextt.startActivity(a);
+                    }
+                    else if(getLayoutPosition()==3){
+                        firstas=((TextView)v.findViewById(R.id.babaname)).getText().toString();
+                        Intent a=new Intent(contextt,Babajidetail.class);
+                        Toast.makeText(contextt,"3 option"+getLayoutPosition(),Toast.LENGTH_LONG).show();
+                        a.putExtra("itemname",firstas);
+                        contextt.startActivity(a);
+                    }
+
+                }
+            });
+
         }
     }
 }

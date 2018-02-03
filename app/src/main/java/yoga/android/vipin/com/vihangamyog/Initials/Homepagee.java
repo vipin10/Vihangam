@@ -8,6 +8,7 @@ import android.app.FragmentTransaction;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -19,6 +20,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +35,10 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import yoga.android.vipin.com.vihangamyog.Centers.centerslist;
 import yoga.android.vipin.com.vihangamyog.History.Babaji;
 import yoga.android.vipin.com.vihangamyog.Homedisplay.Dataa;
@@ -43,6 +49,9 @@ public class Homepagee extends AppCompatActivity implements NavigationView.OnNav
     private SliderLayout mDemoSlider;
     Toolbar toolbar;
     FirebaseAuth mauth;
+    String FILENAME = "hello_file";
+    String string = "hello world!";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +59,9 @@ public class Homepagee extends AppCompatActivity implements NavigationView.OnNav
         setContentView(R.layout.activity_homepagee);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //toolbar.setBackgroundColor(R.color.colorAccent);
+        toolbar.setBackgroundColor(R.color.colorAccent);
         mauth = FirebaseAuth.getInstance();
-        toolbar.setTitle("Home");
+        toolbar.setTitle("Vihangam Yoga");
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         FragmentTransaction tx = getFragmentManager().beginTransaction();
         tx.replace(R.id.framee, new Dataa()).commit();
@@ -61,17 +70,25 @@ public class Homepagee extends AppCompatActivity implements NavigationView.OnNav
         adView.setAdSize(AdSize.BANNER);
         adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
 
+        FileOutputStream fos;
+        try {
+            fos = openFileOutput(FILENAME, getBaseContext().MODE_PRIVATE);
+            fos.write(string.getBytes());
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                     this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
             drawer.addDrawerListener(toggle);
             toggle.syncState();
 
             navigationView.setNavigationItemSelectedListener(this);
-
-
-
     }
 
     @Override
@@ -82,9 +99,11 @@ public class Homepagee extends AppCompatActivity implements NavigationView.OnNav
         } else {
             super.onBackPressed();
         }
+        moveTaskToBack(true);
     }
 
 
+    @SuppressLint("ResourceAsColor")
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -103,7 +122,8 @@ public class Homepagee extends AppCompatActivity implements NavigationView.OnNav
         } else if (id == R.id.nav_society) {
 
         } else if (id == R.id.nav_History) {
-            toolbar.setTitle("History");
+            toolbar.setTitle("Sant Pravar");
+            toolbar.setTitleTextColor(R.color.lightblue);
             ft.replace(R.id.framee,new Babaji()).commit();
             Toast.makeText(getBaseContext(), "Third option clicked", Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_settings) {

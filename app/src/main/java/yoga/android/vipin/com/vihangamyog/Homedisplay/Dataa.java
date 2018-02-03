@@ -17,6 +17,8 @@ import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 
 import yoga.android.vipin.com.vihangamyog.AudioPlay.Audiomp;
@@ -25,6 +27,7 @@ import yoga.android.vipin.com.vihangamyog.Pray.Praylayoutt;
 import yoga.android.vipin.com.vihangamyog.R;
 import yoga.android.vipin.com.vihangamyog.Uploadpics.ViewAddPhotos;
 import yoga.android.vipin.com.vihangamyog.Videosguruji.videosplay;
+import yoga.android.vipin.com.vihangamyog.YoutubeAPI.ChannelActivity;
 
 /**
  * Created by vipin.rai on 11/20/2017.
@@ -37,6 +40,9 @@ public class Dataa extends Fragment implements BaseSliderView.OnSliderClickListe
      LinearLayout videoss;
      LinearLayout audiosss,uploadpics;
      String filename="myfile";
+    String FILENAME = "hello_file";
+    String string = "hello world!";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -51,6 +57,7 @@ public class Dataa extends Fragment implements BaseSliderView.OnSliderClickListe
         wr.wrii();
         wr.isExternalStorageWritable();
         wr.isExternalStorageReadable();
+
         //ImageView click actions
 prayy.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -62,7 +69,7 @@ prayy.setOnClickListener(new View.OnClickListener() {
 videoss.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Intent iii=new Intent(getActivity(),videosplay.class);
+        Intent iii=new Intent(getActivity(),ChannelActivity.class);
          startActivity(iii);
     }
 });

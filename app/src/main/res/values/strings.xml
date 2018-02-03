@@ -6,12 +6,12 @@
     <string name="mobile">Mobile No.</string>
     <string name="name">Name</string>
     <string name="otptext">Enter the OTP</string>
-    <string name="button">GO!</string>
+    <string name="button">VERIFY!</string>
     <string name="reenterpasssword">Re-enter Password</string>
     <string name="Newuser">"         "New User? \n SIGN UP from Here</string>
     <string name="resendcode">Re-Send Code</string>
     <string name="reee">Haven\'t Received the Code in </string>
-    <string name="title_activity_homepagee">Homepagee</string>
+    <string name="title_activity_homepagee">Vihangam Yoga</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="gyan">आज का विचार</string>

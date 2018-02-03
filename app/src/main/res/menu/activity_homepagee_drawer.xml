@@ -4,19 +4,28 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single"
+        android:id="@+id/group9"
+        >
+        <item
+            android:id="@+id/nav_doha"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Swarved" />
+    </group>
+
+    <group android:checkableBehavior="single"
         android:id="@+id/group0"
         >
         <item
             android:id="@+id/nav_centers"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Centers" />
+            android:title="Ashrams" />
     </group>
     <group android:checkableBehavior="single"
         android:id="@+id/group1">
         <item
             android:id="@+id/nav_History"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="History" />
+            android:title="Inspirations" />
 
     </group>
     <group android:checkableBehavior="single"
@@ -25,25 +34,16 @@
         <item
             android:id="@+id/nav_society"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Society" />
+            android:title="Seva" />
     </group>
 
     <group android:checkableBehavior="single"
-        android:id="@+id/group5"
+        android:id="@+id/group8"
         >
         <item
-            android:id="@+id/nav_2"
+            android:id="@+id/nav_products"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Our Reach" />
-    </group>
-
-    <group android:checkableBehavior="single"
-        android:id="@+id/group6"
-        >
-        <item
-            android:id="@+id/nav_3"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Scientific Aspects" />
+            android:title="Sukrit Products" />
     </group>
     <group android:checkableBehavior="single"
         android:id="@+id/group3"
@@ -51,10 +51,25 @@
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Upload phhotos of events" />
+            android:title="Scientific Aspects" />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/group6"
+        >
+        <item
+            android:id="@+id/nav_3"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Upload photos of events" />
     </group>
 
-
+    <group android:checkableBehavior="single"
+        android:id="@+id/group5"
+        >
+        <item
+            android:id="@+id/about"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="About Us" />
+    </group>
 
     <item android:title="Communicate">
         <menu>

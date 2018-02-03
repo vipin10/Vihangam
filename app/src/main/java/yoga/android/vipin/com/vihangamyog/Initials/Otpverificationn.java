@@ -36,8 +36,8 @@ public class Otpverificationn extends AppCompatActivity {
     String verificationId;
     String code;
     FirebaseAuth mAuth;
-    String TAG="tag";
-    Button bb,resendbb;
+    String TAG = "tag";
+    Button bb, resendbb;
     EditText ee;
     SharedPreferences sp;
     TextView ttv;
@@ -52,14 +52,14 @@ public class Otpverificationn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otpverificationn);
-       mAuth = FirebaseAuth.getInstance();
-        bb=(Button)findViewById(R.id.verifyy);
-        resendbb=(Button)findViewById(R.id.button3);
-        ee=(EditText)findViewById(R.id.editText7);
-        ttv=(TextView)findViewById(R.id.textView3);
-       sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        phoneNumber=sp.getString("Number",null);
-        Toast.makeText(this,"No. is"+phoneNumber,Toast.LENGTH_LONG).show();
+        mAuth = FirebaseAuth.getInstance();
+        bb = (Button) findViewById(R.id.verifyy);
+        resendbb = (Button) findViewById(R.id.button3);
+        ee = (EditText) findViewById(R.id.editText7);
+        ttv = (TextView) findViewById(R.id.textView3);
+        sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        phoneNumber = sp.getString("Number", null);
+        Toast.makeText(this, "No. is" + phoneNumber, Toast.LENGTH_LONG).show();
         //Declare the timer
         Timer t = new Timer();
         //Set the schedule function and rate
@@ -73,22 +73,21 @@ public class Otpverificationn extends AppCompatActivity {
                     @Override
                     public void run() {
 
-                        ttv.setText(getString(R.string.reee)+" "+String.valueOf(seconds) +" Seconds");
+                        ttv.setText(getString(R.string.reee) + " " + String.valueOf(seconds) + " Seconds");
                         ttv.setTextColor(R.color.colortext);
                         seconds -= 1;
 
-                        if(seconds == 0 ||seconds<0)
-                        {
+                        if (seconds == 0 || seconds < 0) {
                             ttv.setText("Re-Send the code.Press the Button Below");
                             resendbb.setEnabled(true);
                             resendbb.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    resendVerificationCode(phoneNumber,fff);
+                                    Intent ii = new Intent(getApplicationContext(), loginpage.class);
+                                    startActivity(ii);
                                 }
                             });
                         }
-
 
 
                     }
@@ -99,6 +98,7 @@ public class Otpverificationn extends AppCompatActivity {
         }, 0, 1000);
 
     }
+
     private void verifyPhoneNumberWithCode(String verificationId, String code) {
         // [START verify_with_code]
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
@@ -115,12 +115,12 @@ public class Otpverificationn extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = task.getResult().getUser();
-                            String aaa=user.getDisplayName();
-                            String bbb=user.getPhoneNumber();
-                            sp.edit().putString("name",aaa).apply();
-                            sp.edit().putString("phone",bbb).apply();
-                            Log.d(TAG, aaa+bbb);
-                            Intent ii=new Intent(getApplicationContext(),Homepagee.class);
+                            String aaa = user.getDisplayName();
+                            String bbb = user.getPhoneNumber();
+                            sp.edit().putString("name", aaa).apply();
+                            sp.edit().putString("phone", bbb).apply();
+                            Log.d(TAG, aaa + bbb);
+                            Intent ii = new Intent(getApplicationContext(), Homepagee.class);
                             startActivity(ii);
                             // ...
                         } else {
@@ -128,7 +128,7 @@ public class Otpverificationn extends AppCompatActivity {
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 // The verification code entered was invalid
-                                Toast.makeText(getApplicationContext(),"The Code entered is Invalid.Please Try again",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "The Code entered is Invalid.Please Try again", Toast.LENGTH_LONG).show();
                             }
                         }
                     }
@@ -136,13 +136,14 @@ public class Otpverificationn extends AppCompatActivity {
 
 
     }
+
     private void resendVerificationCode(String phoneeee, PhoneAuthProvider.ForceResendingToken token) {
 
     }
 
-    public void veriff(View view){
-        verificationId=sp.getString("verifi",null);
-        code=ee.getText().toString();
-        verifyPhoneNumberWithCode(verificationId,code);
+    public void veriff(View view) {
+        verificationId = sp.getString("verifi", null);
+        code = ee.getText().toString();
+        verifyPhoneNumberWithCode(verificationId, code);
     }
 }

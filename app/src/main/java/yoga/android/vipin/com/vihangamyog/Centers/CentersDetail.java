@@ -39,7 +39,7 @@ public class CentersDetail extends AppCompatActivity {
            iv1.setBackground(getDrawable(R.drawable.mandir2));
            descr.setText(R.string.ashramdetail);
        }else if(asd.equals("Maharshi Sadafaldeo Ashram, Jhunsi, Allahabad")){
-           iv1.setBackground(getDrawable(R.drawable.mandir1));
+           iv1.setBackground(getDrawable(R.drawable.mandir11));
            descr.setText(R.string.ashrame2detail);
        }else if(asd.equals("Shoonya Shikhar Ashram,garhwal")){
            iv1.setBackground(getDrawable(R.drawable.mandir2));

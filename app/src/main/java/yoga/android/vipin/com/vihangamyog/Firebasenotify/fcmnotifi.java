@@ -20,7 +20,7 @@ import yoga.android.vipin.com.vihangamyog.R;
 
 public class fcmnotifi extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "MainActivity1";
     Button subscribeButton;
     @TargetApi(Build.VERSION_CODES.O)
     @RequiresApi(api = Build.VERSION_CODES.M)

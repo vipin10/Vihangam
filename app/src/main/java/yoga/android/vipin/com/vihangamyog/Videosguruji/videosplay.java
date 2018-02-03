@@ -34,8 +34,9 @@ ActionBar actionBar;
         setSupportActionBar(toolbar1);
         actionBar=getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        //toolbar1.setBackgroundColor(R.color.colorAccent);
+        toolbar1.setBackgroundColor(R.color.colorAccent);
         toolbar1.setTitle("Pray");
         toolbar1.setTitleTextColor(getResources().getColor(R.color.colorwhiteee));
     }
+
 }

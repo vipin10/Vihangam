@@ -47,7 +47,7 @@ public class loginpage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginpage);
-        tv=(TextView)findViewById(R.id.textView);
+        //tv=(TextView)findViewById(R.id.textView);
         mob=(EditText)findViewById(R.id.editText2);
         namee=findViewById(R.id.editText);
         bbb=(Button)findViewById(R.id.button);
@@ -59,13 +59,6 @@ mAuth=PhoneAuthProvider.getInstance();
 
         }
         sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(loginpage.this,Signup.class);
-                startActivity(i);
-            }
-        });
           bbb.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
@@ -131,6 +124,8 @@ public void loginthroughotp(){
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        moveTaskToBack(true);
+        finishAffinity();
     }
+
+
 }
