@@ -2,22 +2,37 @@ package yoga.android.vipin.com.vihangamyog.Homedisplay;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.signature.MediaStoreSignature;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -26,7 +41,6 @@ import yoga.android.vipin.com.vihangamyog.Database.WriteFile;
 import yoga.android.vipin.com.vihangamyog.Pray.Praylayoutt;
 import yoga.android.vipin.com.vihangamyog.R;
 import yoga.android.vipin.com.vihangamyog.Uploadpics.ViewAddPhotos;
-import yoga.android.vipin.com.vihangamyog.Videosguruji.videosplay;
 import yoga.android.vipin.com.vihangamyog.YoutubeAPI.ChannelActivity;
 
 /**
@@ -38,11 +52,10 @@ public class Dataa extends Fragment implements BaseSliderView.OnSliderClickListe
     private SliderLayout mDemoSlider;
     LinearLayout prayy;
      LinearLayout videoss;
+     ImageView ivv;
      LinearLayout audiosss,uploadpics;
-     String filename="myfile";
-    String FILENAME = "hello_file";
-    String string = "hello world!";
-
+     StorageReference storageReference;
+    Drawable d;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -52,13 +65,35 @@ public class Dataa extends Fragment implements BaseSliderView.OnSliderClickListe
         videoss=vv.findViewById(R.id.watchvid);
         audiosss=vv.findViewById(R.id.audiosss);
         uploadpics=vv.findViewById(R.id.uploadpiccc);
+        ivv=vv.findViewById(R.id.vichaarr);
+        storageReference= FirebaseStorage.getInstance().getReference();
+        StorageReference storageReference1 =storageReference.child("images/a1.jpg");
 
+        try {
+            if (isConnected())
+            {
+                Glide.with(this /* context */)
+                        .using(new FirebaseImageLoader())
+                        .load(storageReference1)
+                        .diskCacheStrategy(DiskCacheStrategy.NONE)
+                        .skipMemoryCache(true)
+                        .into(ivv);
+            }
+            else {
+            Glide.with(this /* context */)
+                    .using(new FirebaseImageLoader())
+                    .load(storageReference1)
+                    .into(ivv);
+        } }catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         WriteFile wr=new WriteFile();
         wr.wrii();
         wr.isExternalStorageWritable();
         wr.isExternalStorageReadable();
 
-        //ImageView click actions
 prayy.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
@@ -94,6 +129,7 @@ uploadpics.setOnClickListener(new View.OnClickListener() {
         file_maps.put("Events r displayed here", R.drawable.mandir);
         file_maps.put("Path to enlightenment", R.drawable.gurujii);
         file_maps.put("Sadguruji", R.drawable.gurur);
+        file_maps.put("asd",R.drawable.gurur);
 
         for (String name : file_maps.keySet()) {
             TextSliderView textSliderView = new TextSliderView(getActivity());
@@ -103,8 +139,6 @@ uploadpics.setOnClickListener(new View.OnClickListener() {
                     .image(file_maps.get(name))
                     .setScaleType(BaseSliderView.ScaleType.Fit)
                     .setOnSliderClickListener(this);
-
-            //add your extra information
             textSliderView.bundle(new Bundle());
             textSliderView.getBundle()
                     .putString("extra", name);
@@ -118,6 +152,16 @@ uploadpics.setOnClickListener(new View.OnClickListener() {
         mDemoSlider.addOnPageChangeListener(this);
 
         return vv;
+    }
+    public boolean isConnected() throws InterruptedException, IOException
+    {
+        String command = "ping -c 1 google.com";
+        return (Runtime.getRuntime().exec (command).waitFor() == 0);
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("VihangamYoga");
     }
 
     @Override

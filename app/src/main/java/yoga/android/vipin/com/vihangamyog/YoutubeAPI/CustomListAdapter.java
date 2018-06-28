@@ -3,6 +3,7 @@ package yoga.android.vipin.com.vihangamyog.YoutubeAPI;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -16,8 +17,11 @@ import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
+import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 import yoga.android.vipin.com.vihangamyog.R;
 
@@ -25,13 +29,16 @@ import yoga.android.vipin.com.vihangamyog.R;
 public class CustomListAdapter extends RecyclerView.Adapter<CustomListAdapter.ViewHolder>{
 Context con;
     ImageLoader imageLoader = AppController.getInstance().getImageLoader();
-    private LayoutInflater inflater;
     ArrayList<VideoDetails> singletons;
-    int i;
     ArrayList<String> arr=new ArrayList<>();
-    String videoidd;
-    VideoDetails videoDetails=new VideoDetails();
     VideoDetails singleton;
+    NetworkImageView networkImageView;
+    TextView imgtitle;
+    List<String> listOfString;
+    String idddd;
+    String jjjj;
+    final String mypreference = "mypref";
+    Boolean clicke=true;
     public  CustomListAdapter(Context con, ArrayList<VideoDetails> singletons)
     {
 
@@ -42,28 +49,33 @@ Context con;
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View lii= LayoutInflater.from(con).inflate(R.layout.recycleadapttttvideo,null,false);
-        if (this.imageLoader == null) {
-            this.imageLoader = AppController.getInstance().getImageLoader();
-        }
-       LinearLayout ly= (LinearLayout)lii.findViewById(R.id.asser);
-        NetworkImageView networkImageView = (NetworkImageView) lii.findViewById(R.id.video_image);
-        final TextView imgtitle = (TextView) lii.findViewById(R.id.imggtitle);
-        final TextView tvVideoID=(TextView)lii.findViewById(R.id.tv_videoId);
-        singleton = (VideoDetails) this.singletons.get(24);
-        networkImageView.setImageUrl(singleton.getURL(), this.imageLoader);
-        imgtitle.setText(singleton.getVideoName());
-
         return new ViewHolder(lii);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int i) {
-
+        if (this.imageLoader == null) {
+            this.imageLoader = AppController.getInstance().getImageLoader();
+        }
+        holder.setIsRecyclable(false);
+        singleton =this.singletons.get(i);
+        networkImageView.setImageUrl(singleton.getURL(), this.imageLoader);
+        imgtitle.setText(singleton.getVideoName());
+        idddd=singleton.getVideoId();
+        jjjj=singleton.getVideoName();
+        for (int j=0;j<=25;j++){
+            String dd=singleton.getVideoId();
+            String aaab=singleton.getVideoName();
+            listOfString= new ArrayList<String>();
+            //listOfString.add(dd);
+            listOfString.add(aaab);
+        }
+        System.out.println("dddd"+listOfString);
     }
 
     @Override
     public int getItemCount() {
-        return 24;
+        return singletons.size();
 
     }
 
@@ -73,28 +85,39 @@ Context con;
 
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder{
         public ViewHolder(final View itemView) {
             super(itemView);
-            itemView.setOnClickListener(new View.OnClickListener() {
+            LinearLayout ly= (LinearLayout)itemView.findViewById(R.id.asser);
+            networkImageView =itemView.findViewById(R.id.video_image);
+            imgtitle =itemView.findViewById(R.id.imggtitle);
+            final TextView tvVideoID=itemView.findViewById(R.id.tv_videoId);
+            System.out.println("singleton"+singletons);
+
+             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                   // System.out.println("the item is"+videoid);
+                    int position=  getLayoutPosition();
+                    VideoDetails sing=singletons.get(position);
+                    idddd=sing.getVideoId();
                     Bundle bundle = new Bundle();
-                    System.out.println("view clicked"+videoDetails.getVideoId());
-                    bundle.putString("videoId",videoidd);
+                    System.out.println("view clicked"+idddd);
                     FragmentManager fragmentManager=((AppCompatActivity)con).getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     YoutubeFragment1 youf = new YoutubeFragment1();
-                    fragmentTransaction.add(R.id.your_placeholder, youf, "HELLO");
+                    fragmentTransaction.replace(R.id.your_placeholder, youf, "HELLO");
+                    bundle.putString("videoId",idddd);
+                    bundle.putBoolean("boo",clicke);
                     fragmentTransaction.commit();
                     youf.setArguments(bundle);
+
+
                 }
             });
         }
-    }
 
+
+    }
 
 }
 

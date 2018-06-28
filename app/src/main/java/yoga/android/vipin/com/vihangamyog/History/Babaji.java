@@ -1,6 +1,8 @@
 package yoga.android.vipin.com.vihangamyog.History;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,6 +10,8 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +25,7 @@ import com.daimajia.slider.library.Tricks.ViewPagerEx;
 
 import java.util.HashMap;
 
+import yoga.android.vipin.com.vihangamyog.Homedisplay.Dataa;
 import yoga.android.vipin.com.vihangamyog.Initials.Homepagee;
 import yoga.android.vipin.com.vihangamyog.R;
 
@@ -31,6 +36,7 @@ import yoga.android.vipin.com.vihangamyog.R;
 public class Babaji extends Fragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 View view1;
 RecyclerView rvv;
+Toolbar toolbar;
     private SliderLayout mDemoSlider;
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Nullable
@@ -95,9 +101,34 @@ RecyclerView rvv;
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent myIntent = new Intent(getActivity(), Homepagee.class);
-        startActivityForResult(myIntent, 0);
+        Intent myIntent1 = new Intent(getActivity(), Homepagee.class);
+        startActivityForResult(myIntent1, 1);
         return super.onOptionsItemSelected(item);
 
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if(getView() == null){
+            return;
+        }
+
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
+                    // handle back button's click listener
+                    FragmentManager fm=getFragmentManager();
+                    FragmentTransaction ft=fm.beginTransaction();
+                    ft.replace(R.id.framee,new Dataa()).commit();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 }

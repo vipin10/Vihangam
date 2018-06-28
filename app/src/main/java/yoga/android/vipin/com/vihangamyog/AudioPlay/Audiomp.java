@@ -31,21 +31,6 @@ ActionBar actionBaraud;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audiomp);
-       /* try {
-            FileInputStream fis = openFileInput(FILENAME);
-            BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(fis));
-            String line;
-            while ((line = bufferedReader.readLine()) != null ) {
-                System.out.println("the value iss"+line);            }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-        //rvva=findViewById(R.id.audiosss);
-        //rvva.setAdapter(new RecycleAudio(getBaseContext()));
-        //rvva.setLayoutManager(new LinearLayoutManager(getBaseContext()));
         toolbar3=findViewById(R.id.toolbar3);
         setSupportActionBar(toolbar3);
         actionBaraud=getSupportActionBar();

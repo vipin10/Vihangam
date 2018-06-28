@@ -114,7 +114,6 @@ public class centerslist extends Fragment implements BaseSliderView.OnSliderClic
     public void onSliderClick(BaseSliderView slider) {
 
     }
-
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 

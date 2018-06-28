@@ -8,7 +8,7 @@
     android:layout_marginRight="1dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="yoga.android.vipin.com.vihangamyog.Initials.Homepagee"
-    tools:showIn="@layout/app_bar_homepagee">
+    >
 
     <com.daimajia.slider.library.SliderLayout
         android:id="@+id/slider"
@@ -40,6 +40,7 @@
         android:layout_marginTop="5dp"
         android:id="@+id/firstlin"
         android:orientation="horizontal"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
         android:background="#dee9f1"
         android:weightSum="1"
         >
@@ -66,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12dp"
-                android:text="Sadhna"
+                android:text="@string/sadhna"
                 android:textStyle="bold"
                 android:textColor="#000"
                 android:layout_marginTop="3dp"
@@ -94,7 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12dp"
-                android:text="Videos"
+                android:text="@string/videos"
                 android:textStyle="bold"
                 android:textColor="#000"
                 android:layout_marginTop="3dp"
@@ -122,7 +123,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12dp"
-                android:text="Audio"
+                android:text="@string/audio"
                 android:textStyle="bold"
                 android:textColor="#000"
                 android:layout_marginTop="3dp"
@@ -150,32 +151,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12dp"
-                android:text="Latest Photos"
+                android:text="@string/photos"
                 android:textStyle="bold"
                 android:textColor="#000"
                 android:layout_marginTop="3dp"
                 android:layout_gravity="center"
                 />
         </LinearLayout>
+        
     </LinearLayout>
 
 
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_below="@+id/firstlin"
-    android:background="#dee9f1"
-    android:layout_marginTop="2dp"
-    android:layout_alignParentBottom="true"
-    >
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#dee9f1"
+    android:id="@+id/linv"
     android:layout_marginTop="2dp"
     android:orientation="vertical"
-    android:layout_alignParentBottom="true"
     android:layout_below="@+id/firstlin"
     >
 
@@ -191,9 +186,23 @@
             android:textColor="@color/colorPrimary"
             />
 
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:id="@+id/vichaarr"
+        />
 </LinearLayout>
-</ScrollView>
+    <!--<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linv"
+        android:background="#dee9f1"
+        android:layout_marginTop="2dp"
+        android:layout_alignParentBottom="true"
+        >
+
+</ScrollView>-->
 
 
 

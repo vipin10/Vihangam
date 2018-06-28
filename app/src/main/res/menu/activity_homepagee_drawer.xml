@@ -9,7 +9,7 @@
         <item
             android:id="@+id/nav_doha"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Swarved" />
+            android:title="@string/swarved" />
     </group>
 
     <group android:checkableBehavior="single"
@@ -18,14 +18,14 @@
         <item
             android:id="@+id/nav_centers"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Ashrams" />
+            android:title="@string/ashrams" />
     </group>
     <group android:checkableBehavior="single"
         android:id="@+id/group1">
         <item
             android:id="@+id/nav_History"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Inspirations" />
+            android:title="@string/inspirations" />
 
     </group>
     <group android:checkableBehavior="single"
@@ -34,7 +34,7 @@
         <item
             android:id="@+id/nav_society"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Seva" />
+            android:title="@string/seva" />
     </group>
 
     <group android:checkableBehavior="single"
@@ -43,15 +43,15 @@
         <item
             android:id="@+id/nav_products"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Sukrit Products" />
+            android:title="@string/sukrit_products" />
     </group>
     <group android:checkableBehavior="single"
         android:id="@+id/group3"
         >
         <item
-            android:id="@+id/nav_logout"
+            android:id="@+id/nav_eventss"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Scientific Aspects" />
+            android:title="@string/upcoming_events" />
     </group>
     <group android:checkableBehavior="single"
         android:id="@+id/group6"
@@ -59,7 +59,7 @@
         <item
             android:id="@+id/nav_3"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Upload photos of events" />
+            android:title="@string/pics" />
     </group>
 
     <group android:checkableBehavior="single"
@@ -68,7 +68,7 @@
         <item
             android:id="@+id/about"
             android:icon="@drawable/ic_menu_manage"
-            android:title="About Us" />
+            android:title="@string/about" />
     </group>
 
     <item android:title="Communicate">
@@ -76,16 +76,16 @@
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="@string/share" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_feedback"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Share Feedback" />
+                android:title="@string/sharef" />
 
             <item
                 android:id="@+id/nav_settings"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Settings" />
+                android:title="@string/rate_us" />
 
         </menu>
     </item>

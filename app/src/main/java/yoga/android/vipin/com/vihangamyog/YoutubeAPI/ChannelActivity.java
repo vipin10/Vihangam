@@ -3,7 +3,9 @@ package yoga.android.vipin.com.vihangamyog.YoutubeAPI;
 
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
@@ -39,11 +41,12 @@ import java.util.ArrayList;
 import yoga.android.vipin.com.vihangamyog.Initials.Homepagee;
 import yoga.android.vipin.com.vihangamyog.R;
 
+import static java.security.AccessController.getContext;
+
 
 public class ChannelActivity  extends AppCompatActivity {
     RecyclerView lvVideo;
     ArrayList<VideoDetails> videoDetailsArrayList;
-    CustomListAdapter customListAdapter;
     String TAG="ChannelActivity";
     String URL="https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC1NF71EwP41VdjAU1iXdLkw&maxResults=25&key=AIzaSyBU1TUHuSsCGG9jTmhT9lm_tVhOWLv3qn0";
     Toolbar toolbar1;
@@ -51,16 +54,21 @@ public class ChannelActivity  extends AppCompatActivity {
     String API_KEY="AIzaSyBU1TUHuSsCGG9jTmhT9lm_tVhOWLv3qn0";
     private static final int RECOVERY_REQUEST = 1;
     ProgressBar pd;
-
+    CustomListAdapter customListAdapter;
     String videoid;
+
+    public static ChannelActivity createInstance(){
+        System.out.println("Activity recreated");
+        return new ChannelActivity();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_channel);
-        lvVideo=(RecyclerView)findViewById(R.id.videoList1);
-        System.out.println("the response is in channel activity");
-        pd=(ProgressBar)findViewById(R.id.progressBar2);
+        lvVideo=findViewById(R.id.videoList1);
+        pd=findViewById(R.id.progressBar2);
         pd.setProgress(3);
+        System.out.println("OnCreate Recreated");
         videoDetailsArrayList=new ArrayList<>();
         MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
         AdView adView = new AdView(this);
@@ -75,21 +83,19 @@ public class ChannelActivity  extends AppCompatActivity {
         toolbar1.setTitleTextColor(getResources().getColor(R.color.colorwhiteee));
         showVideo();
         customListAdapter=new CustomListAdapter(ChannelActivity.this,videoDetailsArrayList);
-     /* lvVideo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-          @Override
-          public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-              System.out.println("the item is"+videoid);
-              Bundle bundle = new Bundle();
-              bundle.putString("videoId",videoid);
-               FragmentManager fragmentManager = getSupportFragmentManager();
-               FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-              YoutubeFragment1 youf = new YoutubeFragment1();
-              fragmentTransaction.add(R.id.your_placeholder, youf, "HELLO");
-              fragmentTransaction.commit();
-              youf.setArguments(bundle);
-          }
-      });*/
+    }
+
+    @Override
+    public void recreate() {
+        super.recreate();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        lvVideo.setVisibility(View.GONE);
+
     }
 
     private void showVideo() {
@@ -99,11 +105,13 @@ public class ChannelActivity  extends AppCompatActivity {
             public void onResponse(String response) {
                 pd.setVisibility(View.GONE);
                 try {
+
                     JSONObject jsonObject=new JSONObject(response);
                     JSONArray jsonArray=jsonObject.getJSONArray("items");
                     for(int i=0;i<jsonArray.length();i++){
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                         JSONObject jsonVideoId=jsonObject1.getJSONObject("id");
+                        System.out.println("response"+jsonVideoId);
                         JSONObject jsonsnippet= jsonObject1.getJSONObject("snippet");
                         JSONObject jsonObjectdefault = jsonsnippet.getJSONObject("thumbnails").getJSONObject("medium");
 
@@ -117,8 +125,8 @@ public class ChannelActivity  extends AppCompatActivity {
                         videoDetailsArrayList.add(videoDetails);
                     }
                     System.out.println("the video id"+videoDetailsArrayList);
-                    lvVideo.setAdapter(customListAdapter);
-                    lvVideo.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+                    lvVideo.setAdapter(new CustomListAdapter(ChannelActivity.this,videoDetailsArrayList) );
+                    lvVideo.setLayoutManager(new LinearLayoutManager(ChannelActivity.this));
                     customListAdapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                     pd.setVisibility(View.GONE);
@@ -147,4 +155,5 @@ public class ChannelActivity  extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
+
 }

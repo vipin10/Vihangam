@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    >
+
+    <EditText
+        android:id="@+id/feedbackname"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:textSize="18sp"
+        android:background="@drawable/textborder"
+        android:inputType="textPersonName"
+        android:paddingStart="3dp"
+        android:hint="Name"
+
+        />
+
+    <EditText
+        android:id="@+id/feedbackemail"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:textSize="18sp"
+        android:background="@drawable/textborder"
+        android:inputType="textPersonName"
+        android:hint="Email-ID*"
+        android:paddingStart="3dp"
+        android:textAlignment="textStart"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Let Us Know Your Opinion"
+        android:textColor="#666666"
+        />
+
+    <EditText
+        android:id="@+id/feedbackmsg"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:background="@drawable/textborder"
+        android:inputType="textPersonName"
+        android:hint=""
+        android:gravity="left"
+        />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Share Feedback"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:background="@color/saffr"
+        android:textColor="@color/colorAccent"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        />
+</LinearLayout>

@@ -6,5 +6,7 @@
     <color name="colortext">#0099cc</color>
     <color name="colorwhiteee">#fff</color>
     <color name="saffr">#F4C430</color>
+    <color name="black">#464343</color>
+    <color name="red">#fd0522</color>
     <color name="lightblue">#add8e6</color>
 </resources>

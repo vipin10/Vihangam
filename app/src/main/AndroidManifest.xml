@@ -24,7 +24,6 @@
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
 
-
         <activity
             android:name=".Initials.MainActivity"
             android:theme="@style/AppTheme.noactionbar">
@@ -84,15 +83,18 @@
         <activity
             android:name=".YoutubeAPI.ChannelActivity"
             android:label="@string/prayy"
-            android:theme="@style/AppTheme.noactionbar"
             android:screenOrientation="portrait"
-            />
-        <activity android:name=".YoutubeAPI.VideoActivity" />
-        <activity android:name=".YoutubeAPI.MainActivity1" />
+            android:theme="@style/AppTheme.noactionbar" />
         <activity
             android:name=".Uploadpics.ViewAddPhotos"
             android:theme="@style/AppTheme.noactionbar" />
-        <activity android:name=".History.Babajidetail"></activity>
+        <activity android:name=".History.Babajidetail" />
+        <receiver android:name=".Pray.AlarmBroadcastt" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
 
     </application>
 

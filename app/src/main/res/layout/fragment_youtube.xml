@@ -3,13 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/frammee"
+    android:layout_marginTop="10dp"
+
     >
 
     <FrameLayout
         android:name="com.google.android.youtube.player.YouTubePlayerSupportFragment"
         android:id="@+id/youtube_fragment"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="230dp"/>
 
 
 </FrameLayout>
